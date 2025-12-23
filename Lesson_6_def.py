@@ -14,7 +14,7 @@ def has_lower_letters(password):
     return any(p.islower() for p in password)
 
 def has_symbols(password):
-    return any('@' or '$' or '#' or '%' or '^' or '&' or '*' or '!' or '(' or ')' in p for p in password)
+    return any(not p.isalnum() for p in password)
 
 def rating_password(password):
     check = [
@@ -43,3 +43,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
