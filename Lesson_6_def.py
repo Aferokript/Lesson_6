@@ -18,8 +18,7 @@ def has_lower_letters(password):
     return any(p.islower() for p in password)
 
 def has_symbols(password):
-    if '@' or '$' or '#' or '%' or '^' or '&' or '*' or '!' or '(' or ')' in password:
-        return True
+    return any(p.isalnum() for p in password)
 
 def rating_password(password):
     check = [has_digits, has_letter, has_upper_letters, has_lower_letters, has_symbols]
@@ -29,11 +28,3 @@ def rating_password(password):
             score += 2
     rating = f'Рейтинг пароля {score}'
     return rating
-
-print(is_very_long('Password234324'))
-print(has_digits('Password234324'))
-print(has_letter('Password234324'))
-print(has_upper_letters('Password234324'))
-print(has_lower_letters('Password234324'))
-print(has_symbols('Password234324!'))
-print(rating_password('Password234324'))
