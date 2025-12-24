@@ -18,6 +18,7 @@ def has_symbols(password):
 
 def rating_password(password):
     check = [
+       is_very_long,
        has_digits,
        has_letter,
        has_upper_letters,
@@ -28,19 +29,11 @@ def rating_password(password):
     for c in check:
         if c(password):
             score += 2
-    rating = f'Рейтинг пароля {score}'
-    return rating
+    return f'Рейтинг пароля {score}'
 
 def main():
     password = input('Введите пароль ')
-    print(is_very_long(password))
-    print(has_digits(password))
-    print(has_letter(password))
-    print(has_upper_letters(password))
-    print(has_lower_letters(password))
-    print(has_symbols(password))
     print(rating_password(password))
 
 if __name__ == '__main__':
     main()
-
